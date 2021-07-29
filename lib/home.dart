@@ -27,6 +27,30 @@ class AlbumCard extends StatelessWidget {
     ],);
   }
 }
+class RowAlbum extends StatelessWidget {
+  const RowAlbum({Key? key,required this.image, required this.label,}) : super(key: key);
+
+  final ImageProvider image;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return  Expanded(
+      flex: 1,
+      child: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(color: Colors.white10, borderRadius: BorderRadius.circular(9),),
+        clipBehavior: Clip.antiAlias,
+        child: Row(children: [
+          Image(image: image, fit: BoxFit.cover, height: 60, width: 60,),
+          SizedBox(width: 10,),
+          Text(label)
+        ],),
+      ),
+    );
+  }
+}
+
 
 
 class _HomeViewState extends State<HomeView> {
@@ -115,17 +139,21 @@ class _HomeViewState extends State<HomeView> {
                   ],),
                   SizedBox(height: 10,),
 
-                  Container(
-                    decoration: BoxDecoration(color: Colors.white10, borderRadius: BorderRadius.circular(4),),
-                    clipBehavior: Clip.antiAlias,
-                    child: Row(children: [
-                      Image(image: AssetImage("assets/album3.jpg"), fit: BoxFit.cover, height: 40, width: 40,),
-                      SizedBox(width: 10,),
-                      Text("Top 10")
-                    ],),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+                    children: [
+                    RowAlbum(image: AssetImage("assets/favourites.jpg"), label: "FAVOURITES",),
+                    SizedBox(width: 10,),
+                    RowAlbum(image: AssetImage("assets/logo-top.png"), label: "TOP 50",),
+                  ],
                   ),
-
-
+                  SizedBox(height: 10,),
+                  Row(children: [
+                    RowAlbum(image: AssetImage("assets/favourites.jpg"), label: "FAVOURITES",),
+                    SizedBox(width: 10,),
+                    RowAlbum(image: AssetImage("assets/logo-top.png"), label: "TOP 50",),
+                  ],),
                 ],
               ),
             ),
