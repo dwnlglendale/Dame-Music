@@ -66,10 +66,7 @@ class _HomeViewState extends State<HomeView> {
                       children: [
                         Text(
                           "New Releases",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                          ),
+                          style: Theme.of(context).textTheme.headline5,
                         ),
                         Row(
                           children: [
@@ -99,20 +96,41 @@ class _HomeViewState extends State<HomeView> {
                               SizedBox(width: 10,),
                               AlbumCard(label: "Cold", image: AssetImage("assets/album2.jpg"),),
                               SizedBox(width: 10,),
-                              AlbumCard(label: "Drunk",image: AssetImage("assets/album3.jpg"),),
+                              AlbumCard(label: "Stray Sheep",image: AssetImage("assets/album3.jpg"),),
                               SizedBox(width: 10,),
-                              AlbumCard(label: "Drunk",image: AssetImage("assets/album3.jpg"),),
+                              AlbumCard(label: "Syre",image: AssetImage("assets/album4.jpg"),),
                               SizedBox(width: 10,),
-                              AlbumCard(label: "Drunk",image: AssetImage("assets/album3.jpg"),),
+                              AlbumCard(label: "Erys",image: AssetImage("assets/album5.jpg"),),
                             ],
                         ),
                       ),
                     ],
                   ),
+                  SizedBox(height: 20,),
+                  Column(children: [
+
+                    Text("Good Evening",
+                      style: Theme.of(context).textTheme.headline6,
+                    )
+                  ],),
+                  SizedBox(height: 10,),
+
+                  Container(
+                    decoration: BoxDecoration(color: Colors.white10, borderRadius: BorderRadius.circular(4),),
+                    clipBehavior: Clip.antiAlias,
+                    child: Row(children: [
+                      Image(image: AssetImage("assets/album3.jpg"), fit: BoxFit.cover, height: 40, width: 40,),
+                      SizedBox(width: 10,),
+                      Text("Top 10")
+                    ],),
+                  ),
+
+
                 ],
               ),
             ),
           ),
+
         ],
       ),
     );
